@@ -9,6 +9,7 @@ diagonal w h = sqrt (w * w + h * h)
 
 circleArea :: Number -> Number
 circleArea r =
-    pi * r * r
+    r * r * pi
+
 
 main = logShow (diagonal 3.0 4.0)
