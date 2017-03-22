@@ -7,6 +7,7 @@ import Data.Array (length, (..), concatMap, (:), null, filter)
 import Data.Array.Partial (tail, head)
 import Partial.Unsafe (unsafePartial)
 import Control.MonadZero (guard)
+import Data.Foldable (foldl)
 
 allFiles :: Path -> Array Path
 allFiles root = root : concatMap allFiles (ls root)
@@ -58,3 +59,6 @@ triples n = do
 factorizations :: Int -> Array (Array Int)
 factorizations n = 
   [[]]
+
+all :: Array Boolean -> Boolean
+all xs = foldl (\agg x -> agg && x) true xs
